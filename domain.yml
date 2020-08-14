@@ -2,6 +2,10 @@ intents:
   - greet
   - bye
   - thank
+  - faq
+
+actions:
+  - respond_faq
 
 responses:
   utter_noworries:
@@ -9,7 +13,7 @@ responses:
 
   utter_greet:
     - text: Hi
-    
+
   utter_bye:
     - text: Bye!
 
