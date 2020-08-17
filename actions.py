@@ -57,3 +57,14 @@ class SalesForm(FormAction):
 
         dispatcher.utter_message("Thanks for getting in touch, we’ll contact you soon")
         return []
+
+    # Método que descreve de onde as entidades devem ser extraídas
+    # Nesse caso, será extraída uma mensagem completa do usuário caso solicite o slote use_case
+    # não precisaremos usar a entidade use_case definida antes
+    def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict[Text, Any]]]]:
+        """A dictionary to map required slots to
+        - an extracted entity
+        - intent: value pairs
+        - a whole message
+        or a list of them, where a first match will be picked"""
+        return {"use_case": self.from_text(intent="inform")}
