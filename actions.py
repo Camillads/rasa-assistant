@@ -7,7 +7,7 @@
 
 # This is a simple example for a custom action which utters "Hello World!"
 
-from typing import Any, Text, Dict, List
+from typing import Any, Text, Dict, List, Union
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
@@ -61,10 +61,14 @@ class SalesForm(FormAction):
     # Método que descreve de onde as entidades devem ser extraídas
     # Nesse caso, será extraída uma mensagem completa do usuário caso solicite o slote use_case
     # não precisaremos usar a entidade use_case definida antes
+    # permite que seja digitado qualquer coisa pelo usuário para atribuir a valor do slot
     def slot_mappings(self) -> Dict[Text, Union[Dict, List[Dict[Text, Any]]]]:
         """A dictionary to map required slots to
         - an extracted entity
         - intent: value pairs
         - a whole message
         or a list of them, where a first match will be picked"""
-        return {"use_case": self.from_text(intent="inform")}
+        return {
+            "use_case": self.from_text(intent="inform"),
+            "person_name": self.from_text(intent="inform")
+            }

@@ -89,7 +89,7 @@
 - [Jane Doe](person_name)
 - [Max Mustermann](person_name)
 - [Max Meier](person_name)
-- We plan to build a [sales bot](use_case) to increase our sales by 500%.
-- we plan to build a [sales bot](use_case) to increase our revenue by 100%.
-- a [insurance tool](use_case) that consults potential customers on the best life insurance to choose.
-- we're building a [conversational assistant](use_case) for our employees to book meeting rooms.
+- We plan to build a (use_case) to increase our sales by 500%.
+- we plan to build a (use_case) to increase our revenue by 100%.
+- a (use_case) that consults potential customers on the best life insurance to choose.
+- we're building a (use_case) for our employees to book meeting rooms.
