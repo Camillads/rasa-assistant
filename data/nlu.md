@@ -93,3 +93,16 @@
 - we plan to build a (use_case) to increase our revenue by 100%.
 - a (use_case) that consults potential customers on the best life insurance to choose.
 - we're building a (use_case) for our employees to book meeting rooms.
+
+## intent:explain
+- why
+- why is that
+- why do you need it
+- why do you need to know that?
+- could you explain why you need it?
+
+## intent:out_of_scope
+- I want to order food
+- What is 2 + 2?
+- Who’s the US President?
+- I need a job

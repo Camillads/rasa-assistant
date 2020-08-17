@@ -11,6 +11,8 @@ from typing import Any, Text, Dict, List, Union
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormAction
+from rasa_sdk import Action
+from rasa_sdk.events import UserUtteranceReverted
 
 
 class ActionHelloWorld(Action):
@@ -72,3 +74,19 @@ class SalesForm(FormAction):
             "use_case": self.from_text(intent="inform"),
             "person_name": self.from_text(intent="inform")
             }
+
+# lidar com respostas genéricas do usuário
+class ActionGreetUser(Action):
+    """Revertible mapped action for utter_greet"""
+
+    # ação que será disparada como resposta à saudação do usuário
+    def name(self):
+        return "action_greet"
+
+    # a story utter_greet foi removida do stories.md e será tratada aqui, por action
+    # UserUtteranceReverted() é um evento que remove a interação do histórico de diálogo
+    # dessa forma, a pessoa pode saudar em qualquer parte da conversa
+    # sem afetar a estória de diálogo
+    def run(self, dispatcher, tracker, domain):
+        dispatcher.utter_template("utter_greet", tracker)
+        return [UserUtteranceReverted()]
